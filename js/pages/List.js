@@ -192,7 +192,6 @@ export default {
     async mounted() {
         this.list = await fetchList();
         this.editors = await fetchEditors();
-        this.supporters = await fetchSupporters();
 
         // Error handling
         if (!this.list) {
