@@ -105,16 +105,6 @@ export default {
                                 </li>
                             </ol>
                         </ol>
-                        <h3 align="center">Supporters</h3>
-                        <ol class="editors">
-                            <ol class="rank" v-for="rank in supporters">
-                                <li v-for="member in rank.members">
-                                    <img :src="\`/assets/\${roleIconMap[rank.role]}\${store.dark ? '-dark' : ''}.svg\`" :alt="rank.role">
-                                    <a v-if="member.link" class="type-label-lg link" target="_blank" :href="member.link">{{ member.name }}</a>
-                                    <p v-else>{{ member.name }}</p>
-                                </li>
-                            </ol>
-                        </ol>
                     </template>
                      <h3>> How to Submit Records</h3>
                     <p>
