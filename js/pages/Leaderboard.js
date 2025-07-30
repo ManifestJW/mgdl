@@ -28,7 +28,7 @@ export default {
                     <table class="board">
                         <tr v-for="(ientry, i) in leaderboard">
                             <td class="rank">
-                                <p class="type-label-lg">#{{ i + 1 }}</p>
+                                <p class="type-label-lg">#{{ ientry.rank }}</p>
                             </td>
                             <td class="total">
                                 <p class="type-label-lg">{{ localize(ientry.total) }}</p>
@@ -43,7 +43,7 @@ export default {
                 </div>
                 <div class="player-container">
                     <div class="player">
-                        <h2>#{{ selected + 1 }} {{ entry.user }} - {{ entry.verified.length + entry.completed.length }} demons</h2>
+                        <h2>#{{ entry.rank }} {{ entry.user }} - {{ entry.verified.length + entry.completed.length }} demons</h2>
                         <h3>{{ entry.total }} points</h3>
                         <p>Packs Bonus: {{ entry.packBonus }} points</p>
                         <div class="packs" v-if="entry.packs.length > 0">
@@ -104,12 +104,29 @@ export default {
         },
     },
     async mounted() {
-        const [leaderboard, err] = await fetchLeaderboard();
-        this.leaderboard = leaderboard;
-        this.err = err;
-        // Hide loading spinner
-        this.loading = false;
-    },
+    const [leaderboard, err] = await fetchLeaderboard();
+
+    // Sort already happens in fetchLeaderboard, but do it again here just to be safe
+    leaderboard.sort((a, b) => b.total - a.total);
+
+    let rank = 1;
+    let currentScore = null;
+    let duplicateCount = 0;
+
+    leaderboard.forEach((entry, index) => {
+        if (entry.total !== currentScore) {
+            rank = index + 1;
+            currentScore = entry.total;
+        } else {
+            duplicateCount++;
+        }
+        entry.rank = rank;
+    });
+
+    this.leaderboard = leaderboard;
+    this.err = err;
+    this.loading = false;
+},
     methods: {
         localize,
         getFontColour,
