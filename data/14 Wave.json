@@ -11,7 +11,18 @@
 	"percentToQualify": 100,
 	"password": "Free to Copy",
 	"records": [
-		
+		{
+			"user": "WeddedAuthor",
+			"link": "https://youtu.be/jfbXbii61tE",
+			"percent": 100,
+			"hz": 240
+		},
+		{
+			"user": "Adhafera",
+			"link": "https://youtu.be/6zCD3Sri7As",
+			"percent": 100,
+			"hz": 240
+		}
 	]
 
 }
