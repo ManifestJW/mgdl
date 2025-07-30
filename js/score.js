@@ -17,28 +17,38 @@ const scale = 1;
  * @returns {Number}
  */
 export function score(rank, percent, minPercent, levelCount) {
-    const b = (levelCount - 1) * baseFactor
-    const a = 600 * Math.sqrt(b)
+    const maxScore = 150;
+    const minScore = 20;
 
-    let score = (a / Math.sqrt((rank - 1) / 50 + b) - 100) *
-        ((percent - (minPercent - 1)) / (100 - (minPercent - 1)));
+    // Slight exponential factor. 0.05 gives a subtle curve
+    const expFactor = 0.05;
 
-    score = Math.max(0, score);
+    // Normalize rank to [0, 1]
+    const x = (rank - 1) / (levelCount - 1);
 
-    if (percent != 100) {
-        return round(score - score / 3);
+    // Smooth exponential curve
+    const base = minScore + (maxScore - minScore) * Math.pow(1 - x, 1 + expFactor);
+
+    // Adjust for completion percent
+    const completionFactor = (percent - (minPercent - 1)) / (100 - (minPercent - 1));
+    let finalScore = base * completionFactor;
+
+    if (percent !== 100) {
+        finalScore *= 2 / 3;
     }
 
-    return round(score);
+    return round(Math.max(0, finalScore));
 }
 
 export function calculateScores(levelCount) {
-    const b = (levelCount - 1) * baseFactor;
-    const a = 600 * Math.sqrt(b);
+    const maxScore = 150;
+    const minScore = 20;
+    const expFactor = 0.05;
 
     let scores = [];
-    for (let rank = 0; rank < levelCount; ++rank) {
-        const score = (a / Math.sqrt(rank / 50 + b) - 100);
+    for (let rank = 1; rank <= levelCount; ++rank) {
+        const x = (rank - 1) / (levelCount - 1);
+        const score = minScore + (maxScore - minScore) * Math.pow(1 - x, 1 + expFactor);
         scores.push(round(score));
     }
 
