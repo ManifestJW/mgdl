@@ -9,8 +9,9 @@
 	"verification": "",
 	"percentToQualify": 100,
 	"password": "Free to Copy",
-	"records": [
-		
-	]
+	"records": ["user": "WeddedAuthor",
+			"link": "https://youtu.be/R883S8wxXYw?si=lD2wdDdZIRISSH0z",
+			"percent": 100,
+			"hz": 240]
 
 }
