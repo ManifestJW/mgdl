@@ -8,4 +8,13 @@
             }
         ]
     }
+    {
+        "role": "admin",
+        "members": [
+            {
+                "name": "TheCannonCarl",
+                "link": "https://www.youtube.com/channel/UCWmufuJHVrxdwbCQwCxbpkg"
+            }
+        ]
+    }
 ]
