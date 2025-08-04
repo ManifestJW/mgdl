@@ -1,0 +1,21 @@
+{
+	"id": 145,
+	"name": "test",
+	"author": "test",
+	"creators": [
+		"manifestrev"
+	],
+	"verifier": "manifestrev",
+	"verification": "https://www.youtube.com/watch?v=Zrxsl_C_sJ8",
+	"percentToQualify": 100,
+	"password": "Free to Copy",
+	"records": [
+		{
+			"user": "Shrixy",
+			"link": "https://youtu.be/10xP70gjWP4",
+			"percent": 100
+		}
+		
+	]
+
+}
