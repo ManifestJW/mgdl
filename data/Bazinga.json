@@ -9,7 +9,11 @@
 	"verification": "https://youtu.be/lohel0qXAeI?si=8tu1vqUkcs8qzZRx",
 	"percentToQualify": 100,
 	"password": "Free to Copy",
-	"records": [
+	"records": [ {
+		"user": "TheCannonCarl",
+		"link": "https://youtu.be/3kYS0kQyhGc?si=iJoJpM5mfNTAC8dd",
+		"percent": 100
+		}
 		
 		
 	]
