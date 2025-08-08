@@ -7,5 +7,14 @@
             "14 Wave"
         ],
         "colour": "linear-gradient(90deg, rgba(0,53,250,1) 0%, rgba(0,24,97,1) 50%, rgba(0,53,250,1) 100%)"
+    },
+    {
+        "name": "TheCannonCarl Pack",
+        "levels": [
+            "Vehemens Mortialis",
+            "Mortiferus Step",
+            "The Sepulcher"
+        ],
+        "colour": "linear-gradient(90deg, rgba(34,250,0,1) 0%, rgba(24,97,0,1) 50%, rgba(53,250,0,1) 100%)"
     }
 ]
