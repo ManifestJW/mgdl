@@ -16,5 +16,14 @@
             "The Sepulcher"
         ],
         "colour": "linear-gradient(90deg, rgba(34,250,0,1) 0%, rgba(24,97,0,1) 50%, rgba(53,250,0,1) 100%)"
+    },
+    {
+        "name": "Top 1 Pack",
+        "levels": [
+            "Vehemens Mortialis",
+            "Mortiferus Step",
+            "On the grid"
+        ],
+        "colour": "linear-gradient(90deg, rgba(250,34,0,1) 0%, rgba(97,24,0,1) 50%, rgba(250,53,0,1) 100%)"
     }
 ]
