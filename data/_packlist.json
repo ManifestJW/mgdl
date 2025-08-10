@@ -25,5 +25,14 @@
             "On the grid"
         ],
         "colour": "linear-gradient(90deg, rgba(250,34,0,1) 0%, rgba(97,24,0,1) 50%, rgba(250,53,0,1) 100%)"
+    },
+    {
+        "name": "Chokepoint Pack",
+        "levels": [
+            "Mortiferus Step",
+            "the janus curse",
+            "Bazinga"
+        ],
+        "colour": "linear-gradient(90deg, rgba(250,230,0,1) 0%, rgba(97,78,0,1) 50%, rgba(250,150,0,1) 100%)"
     }
 ]
