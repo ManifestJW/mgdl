@@ -1,1 +1,21 @@
+{
+	"id": 137,
+	"name": "Compacted Torment",
+	"author": "VmoapX",
+	"creators": [
+		"VmoapX"
+	],
+	"verifier": "WeddedAuthor",
+	"verification": "https://youtu.be/-uaYQdP5dBM?si=QijpnOOPmgsSWFfS",
+	"percentToQualify": 100,
+	"password": "Free to Copy",
+	"records": [
+		{
+			"user": "TheCannonCarl",
+			"link": "https://youtu.be/HDkk8KWPdG4?si=rp7lJ61aWDGsgdjP",
+			"percent": 100
+		}
+		
+	]
 
+}
