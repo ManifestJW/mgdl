@@ -1,1 +1,21 @@
+{
+	"id": 142,
+	"name": "Arid Maze",
+	"author": "TheCannonCarl",
+	"creators": [
+		"TheCannonCarl"
+	],
+	"verifier": "TheCannonCarl",
+	"verification": "https://youtu.be/wRRpzluA1ok?si=k3UXY2iKniVJy96f",
+	"percentToQualify": 100,
+	"password": "Free to Copy",
+	"records": [
+		{
+			"user": "WeddedAuthor",
+			"link": "https://youtu.be/LVsVHMslz4U?si=W3Nu_NiTC4fWwxRL",
+			"percent": 100
+		}
+		
+	]
 
+}
