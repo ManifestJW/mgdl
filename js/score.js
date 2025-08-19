@@ -43,7 +43,7 @@ export function score(rank, percent, minPercent, levelCount) {
 export function calculateScores(levelCount) {
     const maxScore = 150;
     const minScore = 20;
-    const expFactor = 0.05;
+    const expFactor = 0.8;
 
     let scores = [];
     for (let rank = 1; rank <= levelCount; ++rank) {
