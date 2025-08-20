@@ -18,10 +18,10 @@ const scale = 1;
  */
 export function score(rank, percent, minPercent, levelCount) {
     const maxScore = 250;
-    const minScore = 20;
+    const minScore = 10;
 
     // Slight exponential factor. 0.05 gives a subtle curve
-    const expFactor = 0.8;
+    const expFactor = 1;
 
     // Normalize rank to [0, 1]
     const x = (rank - 1) / (levelCount - 1);
@@ -42,8 +42,8 @@ export function score(rank, percent, minPercent, levelCount) {
 
 export function calculateScores(levelCount) {
     const maxScore = 250;
-    const minScore = 20;
-    const expFactor = 0.8;
+    const minScore = 10;
+    const expFactor = 1;
 
     let scores = [];
     for (let rank = 1; rank <= levelCount; ++rank) {
