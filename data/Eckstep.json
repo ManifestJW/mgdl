@@ -11,7 +11,11 @@
 	"percentToQualify": 100,
 	"password": "Free to Copy",
 	"records": [
-		
+		{
+			"user": "Adhafera",
+			"link": "https://youtu.be/B0xTeEwBOy0",
+			"percent": 100
+		}
 	]
 
 }
