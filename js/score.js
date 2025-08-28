@@ -17,7 +17,7 @@ const scale = 1;
  * @returns {Number}
  */
 export function score(rank, percent, minPercent, levelCount) {
-    const maxScore = 250;
+    const maxScore = 500;
     const minScore = 10;
 
     // Slight exponential factor. 0.05 gives a subtle curve
@@ -41,7 +41,7 @@ export function score(rank, percent, minPercent, levelCount) {
 }
 
 export function calculateScores(levelCount) {
-    const maxScore = 250;
+    const maxScore = 500;
     const minScore = 10;
     const expFactor = 1.5;
 
