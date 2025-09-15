@@ -1,1 +1,21 @@
+{
+	"id": 177,
+	"name": "okaaay",
+	"author": "trme",
+	"creators": [
+		"trme"
+	],
+	"verifier": "trme",
+	"verification": "https://youtu.be/j7xpvGGv2p8?si=7cI-dNg-ypnFADZi",
+	"percentToQualify": 100,
+	"password": "Free to Copy",
+	"records": [
+		{
+			"user": "Shrixy",
+			"link": "https://youtu.be/10xP70gjWP4",
+			"percent": 100
+		}
+		
+	]
 
+}
