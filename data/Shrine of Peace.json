@@ -1,1 +1,21 @@
+{
+	"id": 184,
+	"name": "Shrine of Peace",
+	"author": "glacialtwo",
+	"creators": [
+		"glacialtwo"
+	],
+	"verifier": "glacialtwo",
+	"verification": "https://youtu.be/1tGPOjmt_xA?si=GDmDcS5G4HPDjVkb",
+	"percentToQualify": 100,
+	"password": "Free to Copy",
+	"records": [
+		{
+			"user": "Shrixy",
+			"link": "https://youtu.be/10xP70gjWP4",
+			"percent": 100
+		}
+		
+	]
 
+}
