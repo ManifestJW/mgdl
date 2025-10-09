@@ -44,5 +44,14 @@
             "Bazinga"
         ],
         "colour": "linear-gradient(90deg, rgba(250,230,0,1) 0%, rgba(97,78,0,1) 50%, rgba(250,150,0,1) 100%)"
+    },
+    {
+        "name": "Adhafera Slop Pack",
+        "levels": [
+            "trep",
+            "the poop of ryan",
+            "the janus curse"
+        ],
+        "colour": "linear-gradient(90deg, rgba(88,57,39,1) 0%, rgba(88,57,39,1) 50%, rgba(88,57,39,1) 100%)"
     }
 ]
