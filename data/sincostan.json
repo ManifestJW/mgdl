@@ -1,1 +1,21 @@
+{
+	"id": 189,
+	"name": "sincostan",
+	"author": "MemesAreWerid",
+	"creators": [
+		"MemesAreWerid"
+	],
+	"verifier": "MemesAreWerid",
+	"verification": "https://youtu.be/2e9NmYNdnT0?si=Nwy3z3Dkc7U8Nsb3",
+	"percentToQualify": 100,
+	"password": "Free to Copy",
+	"records": [
+		{
+			"user": "WeddedAuthor",
+			"link": "https://youtu.be/4mTq78jsEDI?si=NMo_2tw4nBZa33HE",
+			"percent": 100
+		}
+		
+	]
 
+}
