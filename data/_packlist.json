@@ -54,5 +54,23 @@
             "the janus curse"
         ],
         "colour": "linear-gradient(90deg, rgba(88,57,39,1) 0%, rgba(88,57,39,1) 50%, rgba(88,57,39,1) 100%)"
+    },
+    {
+        "name": "trme pack",
+        "levels": [
+            "On the grid",
+            "okaaay",
+            "Bazinga"
+        ],
+        "colour": "linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(0,90,140,1) 50%, rgba(0,255,255,1) 100%)"
+    },
+    {
+        "name": "Unplaceable",
+        "levels": [
+            "trep",
+            "Arid Maze",
+            "14 Wave"
+        ],
+        "colour": "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(130,130,130,1) 50%, rgba(255,255,255,1) 100%)"
     }
 ]
