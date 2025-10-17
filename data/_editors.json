@@ -16,5 +16,14 @@
                 "link": "https://www.youtube.com/channel/UCWmufuJHVrxdwbCQwCxbpkg"
             }
         ]
+    },
+    {
+        "role": "mod",
+        "members": [
+            {
+                "name": "Adhafera",
+                "link": "https://www.youtube.com/@ImAdhafera"
+            }
+        ]
     }
 ]
