@@ -1,1 +1,21 @@
+{
+	"id": 196,
+	"name": "Hard Cycle",
+	"author": "Zane",
+	"creators": [
+		"Zane"
+	],
+	"verifier": "Zane",
+	"verification": "https://youtu.be/q9om8rp5gcU?si=BeN7wYg3TJq7LMui",
+	"percentToQualify": 100,
+	"password": "Free to Copy",
+	"records": [
+		{
+			"user": "Shrixy",
+			"link": "https://youtu.be/10xP70gjWP4",
+			"percent": 100
+		}
+		
+	]
 
+}
