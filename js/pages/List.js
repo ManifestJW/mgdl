@@ -51,7 +51,7 @@ export default {
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
-                            <p>{{ score(selected + 1, 100, level.percentToQualify, list.length) }}</p>
+                            <p>{{ score(selected + 1, list.length) }}</p>
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>

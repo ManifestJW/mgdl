@@ -1,21 +1,5 @@
-/**
- * Basefactor for parameters a and b
- * basefactor = 1 / (18000000 / (100 + minpoints)^2 - 50)
- *
- * Current basefactor for minpoints = 1
- */
-const baseFactor = 0.0005832492374192035997815;
-const scale = 1;
 
-/**
- * Calculate the score awarded when having a certain percentage on a list level
- * @param {Number} rank - Position on the list
- * @param {Number} percent - Percentage of completion
- * @param {Number} minPercent - Minimum percentage required
- * @param {Number} levelCount - Current number of levels
- * @returns {Number}
- */
-export function score(rank, percent, minPercent, levelCount) {
+export function score(rank, levelCount) {
   const maxScore = 500;
   const minScore = 10;
 
@@ -26,19 +10,9 @@ export function score(rank, percent, minPercent, levelCount) {
   const x = (rank - 1) / (levelCount - 1);
 
   // Smooth exponential curve
-  const base = minScore + (maxScore - minScore) * Math.pow(1 - x, 1 + expFactor);
+  const score = minScore + (maxScore - minScore) * Math.pow(1 - x, 1 + expFactor);
 
-  // Adjust for completion percent
-  const completionFactor = (percent - (minPercent - 1)) / (100 - (minPercent - 1));
-
-  let finalScore = base * completionFactor;
-
-  // Reduce partial completions slightly
-  if (percent !== 100) {
-    finalScore *= 2 / 3;
-  }
-
-  return round(Math.max(0, finalScore));
+  return round(Math.max(0, score));
 }
 
 /**
