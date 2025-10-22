@@ -55,28 +55,9 @@ export function calculateScores(levelCount) {
 
     let scores = [];
     for (let rank = 1; rank <= levelCount; ++rank) {
-         // Normalize rank to [0, 1]
         const x = (rank - 1) / (levelCount - 1);
-        
-        // Smooth exponential curve for base score
-        const base = minScore + (maxScore - minScore) * Math.pow(1 - x, 1 + expFactor);
-        
-        let completionFactor;
-        
-        if (percent < minPercent) {
-            // Below allowed progress, give no points
-            completionFactor = 0;
-        } else if (percent >= 100) {
-            // Full completion = 100%
-            completionFactor = 1.0;
-        } else if (percent >= 99) {
-            // 99% to 100% scales from 0.5 → 1.0
-            completionFactor = 0.5 + (percent - 99) * 0.5;
-        } else {
-            // Between minPercent and 99%
-            // Scales linearly from 0.1 at minPercent → 0.5 at 99%
-            completionFactor = 0.1 + ((percent - minPercent) / (99 - minPercent)) * (0.5 - 0.1);
-        }
+        const score = minScore + (maxScore - minScore) * Math.pow(1 - x, 1 + expFactor);
+        scores.push(round(score));
     }
 
     return scores;
