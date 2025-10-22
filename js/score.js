@@ -1,4 +1,6 @@
 
+let scale = 1;
+
 export function score(rank, levelCount) {
   const maxScore = 500;
   const minScore = 10;
