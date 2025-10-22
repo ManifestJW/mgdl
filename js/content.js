@@ -59,8 +59,6 @@ export async function fetchLeaderboard() {
     const errs = [];
     const packMultiplier = 1.5;
     const scoreLookup = calculateScores(list.length)
-    
-    console.log(list);
 
     list.forEach(([level, err], rank) => {
         if (err) {
@@ -112,15 +110,26 @@ export async function fetchLeaderboard() {
                 return;
             }
 
-            progressed.push({
-                rank: rank + 1,
-                level: level.name,
-                percent: record.percent,
-                score: scoreLookup[rank],
-                link: record.link,
-                path: level.path,
-            });
+            // Determine partial score
+            const minPercent = level.percentToQualify
+            if (record.percent >= minPercent) {
+                const fullScore = scoreLookup[rank];
+                const scale =
+                    0.1 +
+                    0.4 * ((record.percent - minPercent) / (99 - minPercent));
+                const scaledScore = round(fullScore * Math.min(Math.max(scale, 0.1), 0.5));
+
+                progressed.push({
+                    rank: rank + 1,
+                    level: level.name,
+                    percent: record.percent,
+                    score: scaledScore,
+                    link: record.link,
+                    path: level.path,
+                });
+            }
         });
+
     });
     for (let user of Object.entries(scoreMap)) {
         let levels = [...user[1]["verified"], ...user[1]["completed"]].map(
