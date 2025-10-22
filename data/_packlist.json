@@ -72,5 +72,14 @@
             "14 Wave"
         ],
         "colour": "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(130,130,130,1) 50%, rgba(255,255,255,1) 100%)"
+    },
+    {
+        "name": "VmoapX Pack",
+        "levels": [
+            "Luminous Chaos",
+            "Yahweh",
+            "Compacted Torment"
+        ],
+        "colour": "linear-gradient(90deg, rgba(255,0,255,1) 0%, rgba(130,0,130,1) 50%, rgba(255,0,255,1) 100%)"
     }
 ]
