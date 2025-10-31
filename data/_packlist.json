@@ -87,8 +87,8 @@
         "levels": [
             "Luminous Chaos",
             "the poop of ryan",
-            "dont play this"
+            "don't play this"
         ],
-        "colour": "linear-gradient(90deg, rgba(145,0,200,1) 0%, rgba(175,0,230,1) 50%, rgba(145,0,200,1) 100%)"
+        "colour": "linear-gradient(90deg, rgba(145,0,200,1) 0%, rgba(255,0,255,1) 100%)"
     }
 ]
