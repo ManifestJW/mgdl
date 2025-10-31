@@ -81,5 +81,14 @@
             "Compacted Torment"
         ],
         "colour": "linear-gradient(90deg, rgba(255,0,255,1) 0%, rgba(130,0,130,1) 50%, rgba(255,0,255,1) 100%)"
+    },
+    {
+        "name": "Ship Carried Pack",
+        "levels": [
+            "Luminous Chaos",
+            "the poop of ryan",
+            "dont play this"
+        ],
+        "colour": "linear-gradient(90deg, rgba(255,0,255,1) 0%, rgba(255,130,255,1) 50%, rgba(255,0,255,1) 100%)"
     }
 ]
