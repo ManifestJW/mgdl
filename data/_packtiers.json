@@ -1,9 +1,13 @@
 [
     {
         "name": "Iron Tier",
-        "color": "linear-gradient(31deg, rgba(124,124,124,1) 0%, rgba(251,251,251,1) 50%, rgba(124,124,124,1) 100%)",
+        "color": "linear-gradient(31deg, rgba(124,124,124,1) 0%, rgba(251,251,251,1) 100%)",
         "packs": [
             "OG Trilogy"
+            "ItzLucie Pack II"
+            "Chokepoint Pack"
+            "trme pack"
+            
         ]
     }
 ]
