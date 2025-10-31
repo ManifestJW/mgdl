@@ -115,7 +115,7 @@ export default {
                         - Your completion needs to have clicks. If it doesn't (or if it only does for a part of the level, and not the entire run), you have to provide a raw footage with clicks. If you don't, your record will be rejected. Mobile players are NOT exempt from this rule, recorded taps are required.  
                     </p>
                     <p>
-                        - End Screen Cheat Indicator is required if you are using a mod menu that supports one, like Megahack v8.
+                        - End Screen Cheat Indicator is required if you are using a mod menu that supports one, like Megahack v8. If you are submitting a progress, the cheat indicator must be visible throughout the attempt.
                     </p>
                     <p>
                         - End stats (The whole box must appear for at least one frame)
