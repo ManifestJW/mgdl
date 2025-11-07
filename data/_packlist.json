@@ -100,13 +100,4 @@
         ],
         "colour": "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(0,0,0,1) 100%)"
     }
-    {
-        "name": "Very Short Pack",
-        "levels": [
-            "the poop of ryan",
-            "the piss of john",
-            "Eckstep"
-        ],
-        "colour": "linear-gradient(90deg, rgba(255,180,255,1) 0%, rgba(70,0,70,1) 100%)"
-    }
 ]
