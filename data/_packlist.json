@@ -56,6 +56,15 @@
         "colour": "linear-gradient(90deg, rgba(88,57,39,1) 0%, rgba(88,57,39,1) 50%, rgba(88,57,39,1) 100%)"
     },
     {
+        "name": "White Boy Fluid Trilogy",
+        "levels": [
+            "the poop of ryan",
+            "the piss of john",
+            "the vomit of henry"
+        ],
+        "colour": "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(88,57,39,1) 50%, rgba(255,255,255,1) 100%)"
+    },
+    {
         "name": "trme pack",
         "levels": [
             "On the grid",
