@@ -27,9 +27,8 @@
         "colour": "linear-gradient(90deg, rgba(34,200,0,1) 0%, rgba(24,67,0,1) 50%, rgba(53,200,0,1) 100%)"
     },
     {
-        "name": "Top 1 Pack",
+        "name": "Former Top 1 Pack",
         "levels": [
-            "Cesium 137",
             "Vehemens Mortialis",
             "Mortiferus Step",
             "On the grid"
