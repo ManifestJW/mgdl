@@ -67,8 +67,8 @@
         "name": "VmoapX Pack",
         "levels": [
             "Luminous Chaos",
-            "Yahweh",
-            "superlovemeworld"
+            "superlovemeworld",
+            "Yahweh"
         ],
         "colour": "linear-gradient(90deg, rgba(255,83,83,1) 0%, rgba(255,83,83,1) 100%)"
     },
@@ -102,9 +102,9 @@
     {
         "name": "White Boy Fluid Trilogy",
         "levels": [
+            "the vomit of henry",
             "the poop of ryan",
-            "the piss of john",
-            "the vomit of henry"
+            "the piss of john"
         ],
         "colour": "linear-gradient(90deg, rgba(0,100,255,1) 0%, rgba(0,100,255,1) 100%)"
     }
