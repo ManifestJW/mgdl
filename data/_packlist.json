@@ -28,6 +28,15 @@
         "colour": "linear-gradient(90deg, rgba(255,205,0,1) 0%, rgba(255,205,0,1) 100%)"
     },
     {
+        "name": "High Quality Pack",
+        "levels": [
+            "mem",
+            "Cotton Candy",
+            "Shrine of Peace"
+        ],
+        "colour": "linear-gradient(90deg, rgba(255,205,0,1) 0%, rgba(255,205,0,1) 100%)"
+    },
+    {
         "name": "Memory Pack",
         "levels": [
             "mem",
