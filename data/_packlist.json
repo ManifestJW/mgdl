@@ -1,5 +1,23 @@
 [
     {
+        "name": "ItzLucie Pack I",
+        "levels": [
+            "The Lightning Chode",
+            "The Sepulcher",
+            "hole"
+        ],
+        "colour": "linear-gradient(90deg, rgba(170,170,170,1) 0%, rgba(170,170,170,1) 100%)"
+    },
+    {
+        "name": "trme pack",
+        "levels": [
+            "On the grid",
+            "okaaay",
+            "Bazinga"
+        ],
+        "colour": "linear-gradient(90deg, rgba(170,170,170,1) 0%, rgba(170,170,170,1) 100%)"
+    },
+    {
         "name": "OG Trilogy",
         "levels": [
             "Mortiferus Step",
@@ -9,7 +27,7 @@
         "colour": "linear-gradient(90deg, rgba(0,53,250,1) 0%, rgba(0,24,97,1) 50%, rgba(0,53,250,1) 100%)"
     },
     {
-        "name": "ItzLucie Pack",
+        "name": "ItzLucie Pack II",
         "levels": [
             "Vehemens Mortialis",
             "Arid Maze",
@@ -62,15 +80,6 @@
             "the vomit of henry"
         ],
         "colour": "linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(88,57,39,1) 50%, rgba(255,255,255,1) 100%)"
-    },
-    {
-        "name": "trme pack",
-        "levels": [
-            "On the grid",
-            "okaaay",
-            "Bazinga"
-        ],
-        "colour": "linear-gradient(90deg, rgba(0,255,255,1) 0%, rgba(0,90,140,1) 50%, rgba(0,255,255,1) 100%)"
     },
     {
         "name": "Unplaceable",
