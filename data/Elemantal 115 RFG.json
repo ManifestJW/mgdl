@@ -5,11 +5,16 @@
 	"creators": [
 		"VmoapX"
 	],
-	"verifier": "WeddedAuthor",
-	"verification": "https://youtu.be/jJv7rw6mop8?si=nLJh2g9LEVXTQ1ZQ",
+	"verifier": "manifestrev",
+	"verification": "https://youtu.be/_Clbr52CDs8",
 	"percentToQualify": 100,
 	"password": "Free to Copy",
 	"records": [
+		{
+			"user": "WeddedAuthor",
+			"link": "https://youtu.be/jJv7rw6mop8?si=nLJh2g9LEVXTQ1ZQ",
+			"percent": 100
+		},
 		{
 			"user": "Adhafera",
 			"link": "https://youtu.be/c4f_AT8UN_g?si=dtgG1lfkbgcrCQez",
