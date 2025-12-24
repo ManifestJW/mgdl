@@ -10,7 +10,11 @@
 	"percentToQualify": 74,
 	"password": "Free to Copy",
 	"records": [
-		
+		{
+			"user": "Light Bulb",
+			"link": "https://www.youtube.com/watch?v=NWFy_juZ1PA",
+			"percent": 100
+		}
 		
 	]
 
