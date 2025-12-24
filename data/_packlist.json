@@ -116,5 +116,14 @@
             "the piss of john"
         ],
         "colour": "linear-gradient(90deg, rgba(0,100,255,1) 0%, rgba(0,100,255,1) 100%)"
+    },
+    {
+        "name": "High Quality Pack II",
+        "levels": [
+            "Cesium 137",
+            "Maniscapes",
+            "that one guy"
+        ],
+        "colour": "linear-gradient(90deg, rgba(255,180,195,1) 0%, rgba(255,180,195,1) 100%)"
     }
 ]
