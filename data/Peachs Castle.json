@@ -10,7 +10,11 @@
 	"percentToQualify": 100,
 	"password": "Free to Copy",
 	"records": [
-		
+		{
+			"user": "WeddedAuthor",
+			"link": "https://youtu.be/lYo4ysA7us8",
+			"percent": 100
+		}
 		
 	]
 
