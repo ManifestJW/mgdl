@@ -1,5 +1,14 @@
 [
     {
+        "name": "glacialtwo Pack",
+        "levels": [
+            "Shrine of Peace",
+            "Eventful Battle",
+            "Peachs Castle"
+        ],
+        "colour": "linear-gradient(90deg, rgba(170,170,170,1) 0%, rgba(170,170,170,1) 100%)"
+    },
+    {
         "name": "ItzLucie Pack I",
         "levels": [
             "The Lightning Chode",
