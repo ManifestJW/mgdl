@@ -64,6 +64,15 @@
         "colour": "linear-gradient(90deg, rgba(255,205,0,1) 0%, rgba(255,205,0,1) 100%)"
     },
     {
+        "name": "Arcane V1xZy Pack",
+        "levels": [
+            "that one guy",
+            "dont play this",
+            "Nyan Cat Challenge"
+        ],
+        "colour": "linear-gradient(90deg, rgba(255,83,83,1) 0%, rgba(255,83,83,1) 100%)"
+    },
+    {
         "name": "Former Top 1 Pack",
         "levels": [
             "Vehemens Mortialis",
