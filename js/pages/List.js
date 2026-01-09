@@ -27,8 +27,7 @@ export default {
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
-                            <p v-if="i + 1 <= 999" class="type-label-lg">#{{ i + 1 }}</p>
-                            <p v-else class="type-label-lg">Legacy</p>
+                            <p class="type-label-lg">{{ rankText(level, i) }}</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
                             <button @click="selected = i">
@@ -62,22 +61,25 @@ export default {
                             <p>{{ level.password || 'Free to Copy' }}</p>
                         </li>
                     </ul>
-                    <h2>Records</h2>
-                    <p v-if="selected + 1 <= 150"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
-                    <p v-else>100% or better to qualify</p>
-                    <table class="records">
-                        <tr v-for="record in level.records" class="record">
-                            <td class="percent">
-                                <p>{{ record.percent }}%</p>
-                            </td>
-                            <td class="user">
-                                <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
-                            </td>
-                            <td class="mobile">
-                                <img v-if="record.mobile" :src="\`/assets/phone-landscape\${store.dark ? '-dark' : ''}.svg\`" alt="Mobile">
-                            </td>
-                        </tr>
-                    </table>
+                   <template v-if="!level.benchmark">
+                        <h2>Records</h2>
+                        <p><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
+
+                        <table class="records">
+                            <tr v-for="record in level.records" class="record">
+                                <td class="percent">
+                                    <p>{{ record.percent }}%</p>
+                                </td>
+                                <td class="user">
+                                    <a :href="record.link" target="_blank" class="type-label-lg">{{ record.user }}</a>
+                                </td>
+                                <td class="mobile">
+                                    <img v-if="record.mobile" :src="'/assets/phone-landscape' + (store.dark ? '-dark' : '') + '.svg'" alt="Mobile"/>
+                                </td>
+                            </tr>
+                        </table>
+                    </template>
+
                 </div>
                 <div v-else class="level" style="height: 100%; justify-content: center; align-items: center;">
                     <p>(ノಠ益ಠ)ノ彡┻━┻</p>
@@ -171,5 +173,9 @@ export default {
         embed,
         score,
         getFontColour,
+        rankText(level, i) {
+            if (!level) return "—";
+            return level.benchmark ? "—" : "#" + (i + 1);
+        },
     },
 };
