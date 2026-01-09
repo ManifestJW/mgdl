@@ -27,7 +27,9 @@ export default {
                 <table class="list" v-if="list">
                     <tr v-for="([level, err], i) in list">
                         <td class="rank">
-                            <p v-if="i + 1 <= 999" class="type-label-lg">#{{ i + 1 }}</p>
+                            <p class="type-label-lg">
+                                {{ level?.benchmark ? "—" : "#" + level.displayRank }}
+                            </p>
                             <p v-else class="type-label-lg">Legacy</p>
                         </td>
                         <td class="level" :class="{ 'active': selected == i, 'error': !level }">
@@ -62,10 +64,10 @@ export default {
                             <p>{{ level.password || 'Free to Copy' }}</p>
                         </li>
                     </ul>
-                    <h2>Records</h2>
+                    <h2 v-if="!level.benchmark">Records</h2>
                     <p v-if="selected + 1 <= 150"><strong>{{ level.percentToQualify }}%</strong> or better to qualify</p>
                     <p v-else>100% or better to qualify</p>
-                    <table class="records">
+                    <table v-if="!level.benchmark" class="records">
                         <tr v-for="record in level.records" class="record">
                             <td class="percent">
                                 <p>{{ record.percent }}%</p>
@@ -137,6 +139,9 @@ export default {
     computed: {
         level() {
             return this.list[this.selected][0];
+        },
+        rankedCount() {
+            return this.list.filter(([lvl]) => lvl && !lvl.benchmark).length;
         },
     },
     async mounted() {

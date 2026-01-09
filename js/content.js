@@ -8,6 +8,8 @@ const dir = "/data";
 export async function fetchList() {
     const listResult = await fetch(`${dir}/_list.json`);
     const packResult = await fetch(`${dir}/_packlist.json`);
+    let rankCounter = 0;
+    
     try {
         const list = await listResult.json();
         const packsList = await packResult.json();
@@ -19,19 +21,35 @@ export async function fetchList() {
                     let packs = packsList.filter((x) =>
                         x.levels.includes(path)
                     );
+
+                    const isBenchmark = !!level.benchmark;
+
+                    let displayRank = null;
+                    let rankIndex = null;
+
+                    if (!isBenchmark) {
+                        rankCounter++;
+                        displayRank = rankCounter;
+                        rankIndex = rankCounter - 1; // zero-based for score lookup
+                    }
+
+
                     return [
                         {
                             ...level,
+                            benchmark: isBenchmark,
+                            displayRank,
+                            rankIndex,
                             packs,
                             path,
-                            records: level.records.sort(
-                                (a, b) => b.percent - a.percent
-                            ),
+                            records: isBenchmark
+                                ? [] // optional safety: suppress records entirely
+                                : level.records.sort((a, b) => b.percent - a.percent),
                         },
                         null,
-                    ];
+                        ];
                 } catch {
-                    console.error(`Failed to load level #${rank + 1} ${path}.`);
+                    console.error(`Failed to load level #${level.displayRank} ${path}.`);
                     return [null, path];
                 }
             })
@@ -58,13 +76,17 @@ export async function fetchLeaderboard() {
     const scoreMap = {};
     const errs = [];
     const packMultiplier = 1.5;
-    const scoreLookup = calculateScores(list.length)
+    const rankedLevels = list.filter(([lvl]) => lvl && !lvl.benchmark);
+    const scoreLookup = calculateScores(rankedLevels.length);
+
 
     list.forEach(([level, err], rank) => {
         if (err) {
             errs.push(err);
             return;
         }
+
+        if (level.benchmark) return;
 
         // Verification
         const verifier =
@@ -79,9 +101,9 @@ export async function fetchLeaderboard() {
         };
         const { verified } = scoreMap[verifier];
         verified.push({
-            rank: rank + 1,
+            rank: level.displayRank,
             level: level.name,
-            score: scoreLookup[rank],
+            score: scoreLookup[level.rankIndex],
             link: level.verification,
             path: level.path,
         });
@@ -101,9 +123,9 @@ export async function fetchLeaderboard() {
             const { completed, progressed } = scoreMap[user];
             if (record.percent === 100) {
                 completed.push({
-                    rank: rank + 1,
+                    rank: level.displayRank,
                     level: level.name,
-                    score: scoreLookup[rank],
+                    score: scoreLookup[level.rankIndex],
                     link: record.link,
                     path: level.path,
                 });
@@ -113,14 +135,14 @@ export async function fetchLeaderboard() {
             // Determine partial score
             const minPercent = level.percentToQualify
             if (record.percent >= minPercent) {
-                const fullScore = scoreLookup[rank];
+                const fullScore = scoreLookup[level.rankIndex];
                 const scale =
                     0.1 +
                     0.4 * ((record.percent - minPercent) / (99 - minPercent));
                 const scaledScore = round(fullScore * Math.min(Math.max(scale, 0.1), 0.5));
 
                 progressed.push({
-                    rank: rank + 1,
+                    rank: level.displayRank,
                     level: level.name,
                     percent: record.percent,
                     score: scaledScore,
@@ -221,7 +243,7 @@ export async function fetchPackLevels(packname) {
                         null,
                     ];
                 } catch {
-                    console.error(`Failed to load level #${rank + 1} ${path}.`);
+                    console.error(`Failed to load level #${level.displayRank} ${path}.`);
                     return [null, path];
                 }
             })
