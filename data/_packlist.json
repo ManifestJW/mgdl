@@ -114,7 +114,8 @@
         "levels": [
             "Vehemens Mortialis",
             "Arid Maze",
-            "Mortiferus Step"
+            "Mortiferus Step",
+            "Blue Moon"
         ],
         "colour": "linear-gradient(90deg, rgba(0,100,255,1) 0%, rgba(0,100,255,1) 100%)"
     },
@@ -141,7 +142,8 @@
         "levels": [
             "Cesium 137",
             "Maniscapes",
-            "that one guy"
+            "that one guy",
+            "Blue Moon"
         ],
         "colour": "linear-gradient(90deg, rgba(255,180,195,1) 0%, rgba(255,180,195,1) 100%)"
     }
