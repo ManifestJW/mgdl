@@ -11,6 +11,7 @@
     {
         "name": "ItzLucie Pack I",
         "levels": [
+            "Blue Moon",
             "The Lightning Chode",
             "The Sepulcher",
             "hole"
@@ -41,6 +42,7 @@
         "levels": [
             "mem",
             "Cotton Candy",
+            "Blue Moon",
             "Shrine of Peace"
         ],
         "colour": "linear-gradient(90deg, rgba(255,205,0,1) 0%, rgba(255,205,0,1) 100%)"
@@ -114,8 +116,7 @@
         "levels": [
             "Vehemens Mortialis",
             "Arid Maze",
-            "Mortiferus Step",
-            "Blue Moon"
+            "Mortiferus Step"
         ],
         "colour": "linear-gradient(90deg, rgba(0,100,255,1) 0%, rgba(0,100,255,1) 100%)"
     },
@@ -142,8 +143,7 @@
         "levels": [
             "Cesium 137",
             "Maniscapes",
-            "that one guy",
-            "Blue Moon"
+            "that one guy"
         ],
         "colour": "linear-gradient(90deg, rgba(255,180,195,1) 0%, rgba(255,180,195,1) 100%)"
     }
