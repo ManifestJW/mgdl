@@ -50,7 +50,7 @@ export default {
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
-                            <p>{{ level.benchmark ? "Benchmark" : score(levelRankAt(selected), rankedLevelCount) }}</p>
+                            <p>{{ level.benchmark ? "Benchmark" : levelScore(selected) }}</p>
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
@@ -138,9 +138,11 @@ export default {
     }),
     computed: {
         level() {
-            return this.list[this.selected][0];
+            const entry = this.list?.[this.selected];
+            return entry ? entry[0] : null;
         },
         rankedLevelCount() {
+            if (!Array.isArray(this.list)) return 0;
             return this.list.filter(([level]) => level && !level.benchmark).length;
         },
     },
@@ -177,8 +179,18 @@ export default {
         score,
         getFontColour,
         levelRankAt(index) {
-            const entries = this.list.slice(0, index + 1);
+            if (!Array.isArray(this.list) || index < 0) return 0;
+            const boundedIndex = Math.min(index, this.list.length - 1);
+            const entries = this.list.slice(0, boundedIndex + 1);
             return entries.filter(([level]) => level && !level.benchmark).length;
+        },
+        levelScore(index) {
+            const levelRank = this.levelRankAt(index);
+            const totalRanked = this.rankedLevelCount;
+            if (levelRank <= 0 || totalRanked <= 0) {
+                return 0;
+            }
+            return score(levelRank, totalRanked);
         },
         rankText(level, i) {
             if (!level) return "—";

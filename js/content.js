@@ -54,6 +54,9 @@ export async function fetchEditors() {
 
 export async function fetchLeaderboard() {
     const list = await fetchList();
+    if (!list) {
+        return [[], ["List data failed to load."]];
+    }
     const packResult = await (await fetch(`${dir}/_packlist.json`)).json();
     const scoreMap = {};
     const errs = [];
