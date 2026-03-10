@@ -58,11 +58,17 @@ export async function fetchLeaderboard() {
     const scoreMap = {};
     const errs = [];
     const packMultiplier = 1.5;
-    const scoreLookup = calculateScores(list.length)
+    const rankedLevelCount = list.filter(([level]) => level && !level.benchmark).length;
+    const scoreLookup = rankedLevelCount > 0 ? calculateScores(rankedLevelCount) : [];
 
-    list.forEach(([level, err], rank) => {
+    let currentRank = 0;
+    list.forEach(([level, err]) => {
         if (err) {
             errs.push(err);
+            return;
+        }
+
+        if (level.benchmark) {
             return;
         }
 
@@ -78,10 +84,14 @@ export async function fetchLeaderboard() {
             packs: [],
         };
         const { verified } = scoreMap[verifier];
+
+        const levelRank = ++currentRank;
+        const levelScore = scoreLookup[levelRank - 1] ?? 0;
+
         verified.push({
-            rank: rank + 1,
+            rank: levelRank,
             level: level.name,
-            score: scoreLookup[rank],
+            score: levelScore,
             link: level.verification,
             path: level.path,
         });
@@ -101,9 +111,9 @@ export async function fetchLeaderboard() {
             const { completed, progressed } = scoreMap[user];
             if (record.percent === 100) {
                 completed.push({
-                    rank: rank + 1,
+                    rank: levelRank,
                     level: level.name,
-                    score: scoreLookup[rank],
+                    score: levelScore,
                     link: record.link,
                     path: level.path,
                 });
@@ -111,16 +121,16 @@ export async function fetchLeaderboard() {
             }
 
             // Determine partial score
-            const minPercent = level.percentToQualify
+            const minPercent = level.percentToQualify;
             if (record.percent >= minPercent) {
-                const fullScore = scoreLookup[rank];
+                const fullScore = levelScore;
                 const scale =
                     0.1 +
                     0.4 * ((record.percent - minPercent) / (99 - minPercent));
                 const scaledScore = round(fullScore * Math.min(Math.max(scale, 0.1), 0.5));
 
                 progressed.push({
-                    rank: rank + 1,
+                    rank: levelRank,
                     level: level.name,
                     percent: record.percent,
                     score: scaledScore,

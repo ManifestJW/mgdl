@@ -9,7 +9,7 @@ export function score(rank, levelCount) {
   const expFactor = 1.5;
 
   // Normalize rank to [0, 1]
-  const x = (rank - 1) / (levelCount - 1);
+  const x = levelCount <= 1 ? 0 : (rank - 1) / (levelCount - 1);
 
   // Smooth exponential curve
   const score = minScore + (maxScore - minScore) * Math.pow(1 - x, 1 + expFactor);
@@ -30,7 +30,7 @@ export function calculateScores(levelCount) {
   let scores = [];
 
   for (let rank = 1; rank <= levelCount; ++rank) {
-    const x = (rank - 1) / (levelCount - 1);
+    const x = levelCount <= 1 ? 0 : (rank - 1) / (levelCount - 1);
     const score = minScore + (maxScore - minScore) * Math.pow(1 - x, 1 + expFactor);
     scores.push(round(score));
   }

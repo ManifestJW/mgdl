@@ -50,7 +50,7 @@ export default {
                     <ul class="stats">
                         <li>
                             <div class="type-title-sm">Points when completed</div>
-                            <p>{{ level.benchmark ? "Benchmark" : score(selected + 1, list.length) }}</p>
+                            <p>{{ level.benchmark ? "Benchmark" : score(levelRankAt(selected), rankedLevelCount) }}</p>
                         </li>
                         <li>
                             <div class="type-title-sm">ID</div>
@@ -140,6 +140,9 @@ export default {
         level() {
             return this.list[this.selected][0];
         },
+        rankedLevelCount() {
+            return this.list.filter(([level]) => level && !level.benchmark).length;
+        },
     },
     async mounted() {
         this.list = await fetchList();
@@ -173,9 +176,14 @@ export default {
         embed,
         score,
         getFontColour,
+        levelRankAt(index) {
+            const entries = this.list.slice(0, index + 1);
+            return entries.filter(([level]) => level && !level.benchmark).length;
+        },
         rankText(level, i) {
             if (!level) return "—";
-            return level.benchmark ? "—" : "#" + (i + 1);
+            if (level.benchmark) return "—";
+            return "#" + this.levelRankAt(i);
         },
     },
 };
