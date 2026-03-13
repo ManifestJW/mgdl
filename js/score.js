@@ -1,7 +1,7 @@
 const MAX_SCORE = 600;
 const MIN_SCORE = 10;
 const K = 7; // Controls how quickly scores drop toward the minimum
-const B = 1.6; // Shapes the exponential curve
+const B = 0.7; // Shapes the exponential curve
 
 const CLUSTER_BOUNDARIES_PERCENT = [0, 2, 14, 40, 60, 81, 98, 100];
 const CLUSTER_BOUNDARIES = CLUSTER_BOUNDARIES_PERCENT.map((value) => value / 100);
@@ -142,10 +142,10 @@ function getClusterIndex(normalizedRank) {
 
 function applyExponentialCurve(effectiveRank) {
   const normalizedRank = clamp(effectiveRank, 0, 1);
-  return (
-    MIN_SCORE +
-    (MAX_SCORE - MIN_SCORE) * Math.exp(-K * Math.pow(normalizedRank, B))
-  );
+  const expBase = Math.exp(-K * Math.pow(normalizedRank, B));
+  const bottom = Math.exp(-K);
+  const normalizedCurve = (expBase - bottom) / (1 - bottom);
+  return MIN_SCORE + (MAX_SCORE - MIN_SCORE) * normalizedCurve;
 }
 
 function clamp(value, min, max) {
