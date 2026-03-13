@@ -1,6 +1,6 @@
 const MAX_SCORE = 600;
 const MIN_SCORE = 10;
-const K = 7; // Controls how quickly scores drop toward the minimum
+const K = 4.8; // Controls how quickly scores drop toward the minimum
 const B = 0.7; // Shapes the exponential curve
 
 const CLUSTER_BOUNDARIES_PERCENT = [0, 2, 14, 40, 60, 81, 98, 100];
