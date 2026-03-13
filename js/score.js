@@ -1,5 +1,5 @@
 const MAX_SCORE = 600;
-const MIN_SCORE = 10;
+const MIN_SCORE = 5;
 const K = 4.8; // Controls how quickly scores drop toward the minimum
 const B = 0.7; // Shapes the exponential curve
 
