@@ -1,15 +1,15 @@
-const MAX_SCORE = 600;
-const MIN_SCORE = 5;
-const K = 4.8; // Controls how quickly scores drop toward the minimum
+const MAX_SCORE = 250;
+const MIN_SCORE = 1;
+const K = 3; // Controls how quickly scores drop toward the minimum
 const B = 0.7; // Shapes the exponential curve
 
-const CLUSTER_BOUNDARIES_PERCENT = [0, 2, 14, 40, 60, 81, 98, 100];
+const CLUSTER_BOUNDARIES_PERCENT = [0, 4, 8, 14, 28, 40, 60, 81, 98, 100];
 const CLUSTER_BOUNDARIES = CLUSTER_BOUNDARIES_PERCENT.map((value) => value / 100);
-const MIN_MULTIPLIER = 0.25;
-const MAX_MULTIPLIER = 3;
+const MIN_MULTIPLIER = 0.5;
+const MAX_MULTIPLIER = 2;
 const CLUSTER_COUNT = CLUSTER_BOUNDARIES.length - 1;
 
-let scale = 1;
+let scale = 3;
 
 export function score(rank, levelCount) {
   if (levelCount <= 0) {
