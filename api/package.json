@@ -1,0 +1,17 @@
+{
+  "name": "mgdl-api",
+  "version": "1.0.0",
+  "description": "Geometry Dash Demonlist API",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "migrate": "python3 db/migrate.py"
+  },
+  "dependencies": {
+    "better-sqlite3": "^11.0.0",
+    "cors": "^2.8.5",
+    "express": "^4.18.2"
+  }
+}
