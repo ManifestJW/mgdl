@@ -11,7 +11,11 @@
 	"percentToQualify": 67,
 	"password": "Free to Copy",
 	"records": [
-		
+		{
+			"user": "Tabbi",
+			"link": "https://youtu.be/xyCqWlJr2bc?si=6M74VfIY6AbfRgyK",
+			"percent": 100
+		}
 	]
 
 }
