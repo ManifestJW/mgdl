@@ -1,0 +1,62 @@
+name: AREDL Top 500 Crawl
+
+on:
+  push:
+    branches:
+      - research/aredl-top500-crawl
+    paths:
+      - "research/aredl_model/crawl_top500.py"
+      - ".github/workflows/aredl-top500-crawl.yml"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Number of hardest AREDL levels to collect"
+        required: false
+        default: "500"
+
+permissions:
+  contents: read
+
+jobs:
+  crawl:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      LIMIT: ${{ github.event.inputs.limit || '500' }}
+    steps:
+      - name: Check out research branch
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Crawl live AREDL completion graph
+        run: |
+          python research/aredl_model/crawl_top500.py \
+            --limit "$LIMIT" \
+            --delay 0.75 \
+            --output aredl_top500_export \
+            --fail-on-partial
+
+      - name: Write run summary
+        if: always()
+        run: |
+          if [ -f aredl_top500_export/aredl_top500_manifest.json ]; then
+            echo '## AREDL Top-500 crawl manifest' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat aredl_top500_export/aredl_top500_manifest.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo 'Crawler did not produce a manifest.' >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Upload completion graph artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: aredl-top500-completion-graph
+          path: aredl_top500_export/
+          if-no-files-found: error
+          retention-days: 30
