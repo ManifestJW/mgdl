@@ -1,0 +1,59 @@
+name: Fandom Attempt Crawl
+
+on:
+  push:
+    branches:
+      - research/aredl-top500-crawl
+    paths:
+      - "research/aredl_model/scrape_fandom_attempts.py"
+      - ".github/workflows/fandom-attempt-crawl.yml"
+  pull_request:
+    branches:
+      - main
+    paths:
+      - "research/aredl_model/scrape_fandom_attempts.py"
+      - ".github/workflows/fandom-attempt-crawl.yml"
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: "Number of hardest AREDL levels to inspect"
+        required: false
+        default: "500"
+
+permissions:
+  contents: read
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      LIMIT: ${{ github.event.inputs.limit || '500' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Scrape public attempt tables
+        run: |
+          python research/aredl_model/scrape_fandom_attempts.py \
+            --limit "$LIMIT" \
+            --delay 0.30 \
+            --output fandom_attempt_export
+      - name: Write summary
+        if: always()
+        run: |
+          if [ -f fandom_attempt_export/manifest.json ]; then
+            echo '## Attempt crawl manifest' >> "$GITHUB_STEP_SUMMARY"
+            echo '```json' >> "$GITHUB_STEP_SUMMARY"
+            cat fandom_attempt_export/manifest.json >> "$GITHUB_STEP_SUMMARY"
+            echo '```' >> "$GITHUB_STEP_SUMMARY"
+          fi
+      - name: Upload attempt intake
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: fandom-attempt-intake
+          path: fandom_attempt_export/
+          if-no-files-found: error
+          retention-days: 30
